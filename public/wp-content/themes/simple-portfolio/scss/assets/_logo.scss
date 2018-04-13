@@ -1,0 +1,14 @@
+.logo {
+  display: inline-block;
+  padding: .7em .5em .6em 1em;
+  line-height: 0.8;
+  font-size: 20px;
+  color: $third_font_color;
+  border-radius: 50%;
+  border-right: 3px solid $third_font_color;
+  font-weight: 500;
+  &--big{
+    font-size: 50px;
+    padding: .5em .5em .5em 1em;
+  }
+}

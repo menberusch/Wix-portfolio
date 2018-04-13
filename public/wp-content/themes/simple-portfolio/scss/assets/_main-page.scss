@@ -1,0 +1,433 @@
+.root-wrapper {
+  position: relative;
+}
+
+.section-wrapper{
+  margin-bottom: 175px;
+  padding: 0 75px;
+  @include breakpoint(684px){
+    padding: 0 20px;
+    margin-bottom: 100px;  
+  }
+}
+
+.backgrounds-wrapper {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  &__bg-wrapper{
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    background-attachment: fixed;
+    &:after{
+      content: '';
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      background: rgba(0,0,0,.6);
+    }
+  }
+  #home-bg {
+    background-image: url('./images/bg1.jpg');
+  }
+  #professional-bg {
+    background-image: url('./images/bg2.jpg');
+  }
+  #experience-bg {
+    background-image: url('./images/bg3.jpg');
+    background-attachment: scroll;
+  }
+  #contact-bg {
+    background-image: url('./images/bg4.jpg');
+  }
+}
+
+.content-wrapper{
+  &__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+// HOME SECTION
+.home-wrapper{
+  text-transform: uppercase;
+  line-height: 1.5;
+  padding: 225px 0 130px 216px;
+  @include breakpoint(786px){
+    padding: 150px 90px;
+  }
+  @include breakpoint(600px){
+    padding: 120px 50px;
+  }
+
+  &__heading{
+    font-family: $headings_font;
+    letter-spacing: .3em;
+  }
+
+  &__subtitle{
+    font-size: 24px;
+    letter-spacing: .2em;
+    font-weight: 300;
+    margin-top: 50px;
+  }
+}
+
+// RESUME SECTION
+.resume-wrapper{
+  background: $between_bg_section;
+  text-align: center;
+  padding: 100px 225px 135px;
+  line-height: 2.5;
+  font-weight: 300;
+  letter-spacing: .5px;
+  word-spacing: 2px;
+  @include breakpoint(980px){
+    padding: 100px 20px 135px;
+  }
+
+  &__description{
+    margin: 60px 0;
+  }
+  
+  &__download{
+    background: transparent;
+    border: 1px solid $third_font_color;
+    padding: 15px 40px;
+    transition: .4s;
+    &:hover{
+      background: $third_font_color;
+    }
+  }
+}
+
+// SECTION TITLE
+.section-title{
+  text-transform: uppercase;
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 100px;
+  @include breakpoint(574px) {
+    font-size: 27px;
+  }
+  @include breakpoint(600px) {
+    margin-bottom: 50px;
+  }
+  
+
+  &__title{
+    font-family: $headings_font;
+    font-size: 1em;
+    letter-spacing: .25em;
+    line-height: 1.5;
+  }
+  &__subtitle{
+    font-size: .571em;
+    letter-spacing: .15em;
+  }
+}
+
+// PROFESSIONAL SECTION
+.active.skill-bar {
+  .skill-bar__bar{
+    &--wordpress{
+      @include skill-perc(75%);
+    }
+    &--drupal{
+      @include skill-perc(70%);
+    }
+    &--wix{
+      @include skill-perc(95%);
+    }
+    &--photoshop{
+      @include skill-perc(85%);
+    }
+    &--illustrator{
+      @include skill-perc(80%);
+    }
+    &--javascript{
+      @include skill-perc(85%);
+    }
+    &--html-css{
+      @include skill-perc(80%);
+    }
+  }
+  .skill-bar__text:last-child{
+    opacity: 1;
+  }
+}
+
+.skill-bar{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  font-size: 14px;
+  &:last-child{
+    margin: 0;
+  }
+  &__text{
+    width: 5%;
+    color: $secondary_font_color;
+    text-transform: uppercase;
+    &:first-child{
+      width: 15%;
+      text-align: right;
+      @include breakpoint(684px){
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+      }
+    }
+    &:last-child{
+      opacity: 0;
+      transition: 1s .7s;
+    }
+  }
+  &__bar{
+    transition: .7s linear;
+    height: 12px;
+    background: $third_font_color;
+    margin: 0 14px 0 20px;
+    @include breakpoint(684px){
+      margin: 0 14px 0 0;
+    }
+    width: 0;
+  }
+}
+
+// Portfolio
+.portfolio-wrapper {
+ margin-top: 175px;
+ padding: 0;
+}
+
+.portfolio-excerpt{
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 1px 35px 7px rgba(47,46,46,0.25);
+  @include breakpoint(600px){
+    flex-wrap: wrap;
+  }
+  &__image{
+    position: relative;
+    flex-grow: 1;
+  }
+  &__black{
+    background: rgba(0, 0, 0, 0);
+    transition: .3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    &:hover{
+      background: rgba(0, 0, 0, .2);
+    }
+  }
+}
+
+// EXPERIENCE
+.experience-wrapper{
+  padding-top: 100px;
+}
+
+.path-outer-wrapper{
+  position: relative;
+  display: flex;
+  text-align: right;
+  @include breakpoint(600px){
+    text-align: left;
+  }
+  &:nth-child(odd){
+    justify-content: flex-end;
+    text-align: left;
+  }
+  &.active {
+    .path-line__start{
+      opacity: 1;
+    }
+    .path-inner-wrapper{
+      opacity: 1;
+    }
+  }
+}
+
+.path-line{
+  position: absolute;
+  z-index: 2;
+  top: -20px;
+  left: calc(50% - 7px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include breakpoint(600px){
+    left: auto;
+    right: 2%;
+    top: 15px;
+  }
+  &__start{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: $third_font_color;
+    opacity: 0;
+    transition: .1s;
+  }
+  &__line{
+    width: 2px;
+    background: $third_font_color;
+    height: 0;
+    transition: .3s .3s ease-in;
+    &.active{
+      height: 100%;
+    }
+  }
+}
+
+.path-inner-wrapper{
+  width: calc(50% - 85px);
+  position: relative;
+  opacity: 0;
+  transition: 2s;
+  &__company-name{
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 2.2;
+    margin-bottom: 15px;
+  }
+  &__job-info{
+    line-height: 1.8;
+    font-weight: 300;
+    color: $secondary_font_color;
+    strong{
+      color: $primary_font_color;
+    }
+  }
+  &__year{
+    position: absolute;
+    top: -20px;
+    color: $third_font_color;
+    font-weight: 400;
+    letter-spacing: .1em;
+    font-size: 16px;
+    &:nth-child(odd){
+      right: 0;
+    }
+    left: 0;
+  }
+  @include breakpoint(600px){
+    width: 100%;
+    margin: 0 50px 65px 0;
+    &__year{
+      top: 15px;
+      left: auto;
+    }
+  }
+}
+
+// Contact us
+.contact-wrapper {
+  background: $between_bg_section;
+  padding: 150px 150px 75px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 250px;
+  @include breakpoint(980px){
+    padding: 100px 20px 135px;
+  }
+  @include breakpoint(600px){
+    margin-bottom: 100px;
+  }
+}
+
+.contact-text {
+  width: 50%;
+  padding-right: 70px;
+  @include breakpoint(600px){
+    width: 100%;
+    padding: 0;
+    margin-bottom: 50px;
+  }
+  &__headline {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 24px;
+    margin-bottom: 1em;
+  }
+  &__paragraph {
+    line-height: 1.8;
+  }
+}
+
+.contact-form {
+  width: 50%;
+  @include breakpoint(600px){
+    width: 100%;
+  }
+  textarea, input {
+    padding: 8px 5px;
+    margin-bottom: 12px;
+    border: 1px transparent solid;
+    &::placeholder{
+      color: #a0a09f;
+      font-weight: 300;
+    }
+    &:focus {
+      outline: none;
+    }
+    &:focus:invalid {
+      border: 1px rgb(238, 60, 60) solid;
+    }
+    &:focus:valid {
+      border: 1px $third_font_color solid;
+    }
+  } 
+  &__name-input {
+    width: 48%;
+    @include breakpoint(600px){
+      width: 100%;
+    }
+  }
+  &__email-input {
+    width: 48%;
+    float: right;
+    @include breakpoint(600px){
+      width: 100%;
+    }
+  }
+  &__subject-input {
+    width: 100%;
+    clear: both;
+  }
+  &__textarea-message {
+    width: 100%;
+    min-height: 140px;
+    resize: none;
+    display: block;
+  }
+  &__submit-btn {
+    width: 100%;
+    line-height: 3;
+    font-weight: 300;
+    background: $third_font_color;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.contact-socials {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  &__item {
+    font-size: 24px;
+    padding: 10px;
+  }
+}

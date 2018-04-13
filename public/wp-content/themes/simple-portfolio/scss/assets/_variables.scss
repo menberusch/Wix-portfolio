@@ -1,0 +1,28 @@
+@import 'fonts';
+
+$headings_font: 'Raleway', sans-serif;
+$main_font: 'Poppins', sans-serif;
+
+$third_font_color: #00d646;
+$primary_font_color: #ffffff;
+$secondary_font_color: #bec7d5;
+
+$between_bg_section: rgb(51,59,80);
+
+@mixin dark-blue-gradient($gradient_opacity, $gradient_position) {
+  background: linear-gradient(to $gradient_position, rgba(51, 59, 80, $gradient_opacity) 30%, transparent);
+}
+
+@mixin breakpoint($point) {
+  @media (max-width: $point){
+    @content;
+  }
+}
+
+@mixin skill-perc($skill_percent){
+  width: $skill_percent * 75 / 100;
+
+  @media (max-width: 684px){
+    width: $skill_percent * 90 / 100;
+  }
+}
